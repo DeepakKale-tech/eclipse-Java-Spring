@@ -34,7 +34,7 @@ public class ServletTwo extends HttpServlet {
 		
 		String n = request.getParameter("uname");
 		String s = (String)request.getAttribute("surname");
-		pw.print("Hello! "+n);
+		pw.print("Username: "+n);
 		pw.print("<br>//Refresh page once to see values");
 		pw.print("<br>Request: "+s);
 		
