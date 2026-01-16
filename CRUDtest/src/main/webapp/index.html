@@ -5,19 +5,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>User Register Form</h1>
 <form action="SaveServlet" method="post">
-Id: <input type="number" name="id"><br>
-Name: <input type="text" name="name"><br>
-Password: <input type="password" name="password"><br>
-Email: <input type="text" name="email"><br>
-Country: <select name="country" style="width:150px">
+<table>
+<tr><td>Id:</td><td><input type="number" name="id"></td></tr>
+<tr><td>Name:</td><td><input type="text" name="name"></td></tr>
+<tr><td>Password:</td><td><input type="password" name="password"></td></tr>
+<tr><td>Email:</td><td><input type="text" name="email"></td></tr>
+<tr><td>Country:</td><td><select name="country" style="width:150px">
 <option>India</option>
 <option>USA</option>
 <option>UK</option>
 <option>Japan</option>
 <option>Others</option>
-</select><br>
-<input type="submit" value="Save Emp Details">
+</select></td></tr>
+<tr><td colspan="2"><input type="submit" value="Save Emp Details"></td></tr>
+</table>
 </form>
 
 <br>
