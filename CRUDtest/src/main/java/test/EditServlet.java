@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 /**
  * Servlet implementation class EditServlet
  */
@@ -26,12 +27,39 @@ public class EditServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		
 		
+		pw.print("<h1>Update Employee</h1>");
+		
+		String sid=request.getParameter("id");
+		int id=Integer.parseInt(sid);
+		
+		Emp e=EmpDao.getEmpById(id);
+		
+		pw.print("<form action='EditServlet2' method='post'>");
+		pw.print("<table>");
+		pw.print("<tr><td></td><td><input type='hidden' name='id' value='"+e.getId()+"'/></td></tr>");
+		pw.print("<tr><td>Name:</td><td><input type='text' name='name' value='"+e.getName()+"'/></td></tr>");
+		pw.print("<tr><td>Password:</td><td><input type='password' name='password' value='"+e.getPassword()+"'/></td></tr>");
+		pw.print("<tr><td>Email:</td><td><input type='text' name='email' value='"+e.getEmail()+"'/></td></tr>");
+		pw.print("<tr><td>Country</td><td>");
+		pw.print("<select name='country' style='width:150px'>");
+		pw.print("<option>India</option>");
+		pw.print("<option>USA</option>");
+		pw.print("<option>UK</option>");
+		pw.print("<option>Japan</option>");
+		pw.print("<option>Other</option>");
+		pw.print("</select>");
+		pw.print("</td></tr>");
+		
+		pw.print("<tr><td colspan='2'><input type='submit' value='Edit & Save'/></td></tr>");
+		pw.print("</table>");
+		pw.print("</form>");
+		pw.close();
 	}
 
 }

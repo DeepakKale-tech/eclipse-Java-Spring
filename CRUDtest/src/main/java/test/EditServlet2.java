@@ -9,16 +9,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Servlet implementation class SaveServlet
+ * Servlet implementation class EditServlet2
  */
-@WebServlet("/SaveServlet")
-public class SaveServlet extends HttpServlet {
+@WebServlet("/EditServlet2")
+public class EditServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SaveServlet() {
+    public EditServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class SaveServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		
@@ -44,14 +44,13 @@ public class SaveServlet extends HttpServlet {
 		e.setEmail(email);
 		e.setCountry(country);
 		
-		int status = EmpDao.save(e);
+		int status = EmpDao.update(e);
 		if(status > 0)
 		{
-			pw.print("Record Inserted Successfully");
 			response.sendRedirect("ViewServlet");
 		}else
 		{
-			pw.print("Unable to Save the Record");
+			pw.print("Unable to Update the Record");
 		}
 		pw.close();
 	}

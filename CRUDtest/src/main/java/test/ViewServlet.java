@@ -32,8 +32,8 @@ public class ViewServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		
-		pw.print("<a href='index.html'>Add Employees</a><br>");
-		pw.print("List Of Employees<br>");
+		pw.print("<h2><a href='index.html'>Add Employees</a></h2>");
+		pw.print("<h2>List Of Employees</h2>");
 		List<Emp> list = EmpDao.getAllEmp();
 		
 		pw.print("<table border='1' width='100%'>");
