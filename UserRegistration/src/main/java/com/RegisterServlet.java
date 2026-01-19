@@ -49,11 +49,12 @@ public class RegisterServlet extends HttpServlet {
 		int status = UserDAO.saveUser(u);
 		if(status > 0)
 		{
-			pw.print("Registration Successfull!!");
+			pw.print("<h2>Registration Successfull!!</h3>");
+			pw.print("<br><h3><a href='Login.html'>Click here to Login</a></h3>");
 		}
 		else
 		{
-			pw.print("Unable to Register User");
+			pw.print("<h2 style='color:red'>Unable to Register User</h2>");
 			RequestDispatcher rd = request.getRequestDispatcher("register.html");
 			rd.include(request, response);
 		}
